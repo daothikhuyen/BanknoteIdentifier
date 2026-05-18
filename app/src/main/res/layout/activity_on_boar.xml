@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/spacing_xxxl"
+    android:paddingHorizontal="@dimen/spacing_m"
+    android:background="@color/white"
+    tools:context=".ui.onboar.OnBoarActivity">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/spacing_s"
+        android:paddingHorizontal="@dimen/spacing_m"
+        android:indeterminate="false"
+        android:progress="50"
+        android:progressDrawable="@drawable/bg_progress_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_h"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.60" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/spacing_xxl"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_h"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_next"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_button"
+        android:backgroundTint="@null"
+        android:fontFamily="@font/be_vietnam_pro_semibold"
+        android:text="@string/next"
+        android:textSize="18sp"
+        android:textColor="@color/color_primary_dark"
+        android:padding="13dp"
+        app:backgroundTint="@null"
+        app:icon="@drawable/ic_next_24dp"
+        app:iconSize="24dp"
+        app:iconGravity="textEnd"
+        app:iconTint="@color/color_primary_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_h" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
