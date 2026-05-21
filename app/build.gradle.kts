@@ -56,4 +56,17 @@ dependencies {
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    // Room
+    val room_version = "2.8.4"
+    implementation("androidx.room:room-runtime:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
+    ksp("androidx.room:room-compiler:$room_version")
+
+    // coil
+    implementation("io.coil-kt:coil:2.6.0")
+
+    val koin_version= "4.2.0"
+    //Koin
+    implementation("io.insert-koin:koin-android:${koin_version}")
 }

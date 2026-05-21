@@ -5,4 +5,12 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_onboar">What kind of stones attract you most?</string>
+    <string name="know_what_s_in_your_pocket">Know what\'s in your pocket</string>
+    <string name="tap_here_to_recognize_a_collections">Tap here to recognize a collections</string>
+    <string name="recent_banknote">Recent Banknote</string>
+    <string name="random_banknote">Random Banknote</string>
+    <string name="collection">Collection</string>
+    <string name="home">Home</string>
+    <string name="price_to_price">$ %d-%d</string>
+    <string name="search_banknotes">Search banknotes…</string>
 </resources>

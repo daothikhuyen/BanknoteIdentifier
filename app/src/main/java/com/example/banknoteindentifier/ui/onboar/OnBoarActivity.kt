@@ -1,6 +1,5 @@
 package com.example.banknoteindentifier.ui.onboar
 
-import android.R.attr.type
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -9,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.asLiveData
 import androidx.viewpager2.widget.ViewPager2
 import com.example.banknoteindentifier.databinding.ActivityOnBoarBinding
-import com.example.banknoteindentifier.ui.home.HomeActivity
+import com.example.banknoteindentifier.ui.main.MainActivity
 import com.example.banknoteindentifier.ui.onboar.adapter.OnBoarAdapter
 import androidx.core.content.edit
 import com.example.banknoteindentifier.utils.AppConstant
@@ -55,7 +54,7 @@ class OnBoarActivity : AppCompatActivity() {
                 val sharedPrefKey = getSharedPreferences(AppConstant.APP_SHARED_PREFERENCES, MODE_PRIVATE)
                 sharedPrefKey.edit { putBoolean(AppConstant.IS_FIRST_TIME, false) }
 
-                val intent = Intent(this, HomeActivity::class.java)
+                val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             }
         }

@@ -3,6 +3,7 @@ package com.example.banknoteindentifier.ui.onboar.fragment.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -18,6 +19,8 @@ class OnBoardContentAdapter(var onClickOption : (OnboardingOption) -> Unit) :
         fun bind(item: OnboardingOption) {
             binding.imageView.setImageResource(item.imgRes)
             binding.tvTitle.text = item.title
+
+            binding.tvReview.isVisible = !item.description.isEmpty()
             binding.tvReview.text = item.description
             binding.cvOption.setOnClickListener {
                 onClickOption(item)

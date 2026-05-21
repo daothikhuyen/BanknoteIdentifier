@@ -21,20 +21,22 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_m"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_gravity="center">
             <TextView
                 android:id="@+id/tvTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
                 android:fontFamily="@font/be_vietnam_pro_semibold"
+                android:gravity="center"
                 android:text="Banknote"/>
             <TextView
                 android:id="@+id/tvReview"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:textSize="12sp"
                 android:fontFamily="@font/be_vietnam_pro_regular"
                 android:textColor="@color/color_primary_dark"
