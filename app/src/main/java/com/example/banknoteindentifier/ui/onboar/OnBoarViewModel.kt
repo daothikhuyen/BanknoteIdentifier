@@ -3,7 +3,6 @@ package com.example.banknoteindentifier.ui.onboar
 import androidx.lifecycle.ViewModel
 import com.example.banknoteindentifier.data.domain.entities.OnboardingOption
 import com.example.banknoteindentifier.data.domain.entities.OnboardingPage
-import com.example.banknoteindentifier.data.repository.SharedPrefRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update

@@ -80,7 +80,7 @@ fun getDataOnBoarThree(): OnboardingPage{
                 title = "Focus on collector value",
             ),
             OnboardingOption(
-                id = 3,
+                id = 4,
                 imgRes = R.drawable.ic_oir_book_32dp,
                 title = "Focus on history & origin",
             )

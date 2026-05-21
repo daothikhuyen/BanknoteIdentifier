@@ -6,4 +6,12 @@
     <color name="color_primary">#91DDCE</color>
     <color name="color_primary_light">#E0FFF9</color>"
     <color name="color_primary_dark">#37767B</color>
+
+    <color name="color_light_sky_blue">#C7F3FF</color>"
+    
+    <color name="color_primary_secondary">#FFFBED</color>"
+    <color name="color_border">#B9B9B9</color>"
+
+    <color name="bottom_nav_selected_item">#37767B</color>"
+    <color name="bottom_nav_unselected_item">#ACACAC</color>
 </resources>
