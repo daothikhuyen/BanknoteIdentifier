@@ -19,8 +19,8 @@
     <View
         android:id="@+id/topShadow"
         android:layout_width="0dp"
-        android:layout_height="8dp"
-        android:background="@drawable/bg_top_shadow"
+        android:layout_height="24dp"
+        android:background="@drawable/bg_top_elevation"
         app:layout_constraintBottom_toTopOf="@id/bottomNavView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>

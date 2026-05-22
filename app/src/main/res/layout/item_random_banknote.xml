@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bankNoteItem"
     android:layout_width="305dp"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_primary"
+    android:background="@drawable/bg_primary_border_dash_bottom"
     android:layout_marginEnd="@dimen/spacing_s"
     android:padding="@dimen/spacing_s">
 
@@ -46,11 +47,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
-            android:fontFamily="@font/be_vietnam_pro_semibold"
             android:maxLines="2"
             android:text="1/4 Dolar “Washington Silver Quarter"
-            android:textSize="14sp"
-            android:layout_marginBottom="@dimen/spacing_xs"
+            style="@style/bodyLargeSemiBold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivMoneyOne" />
 
@@ -58,17 +57,17 @@
             android:id="@+id/tvYear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/be_vietnam_pro_medium"
+            android:layout_marginBottom="@dimen/spacing_xxs"
             android:text="1932 - 1964"
             android:textColor="@color/color_border"
-            android:textSize="12sp"
-            android:layout_marginBottom="@dimen/spacing_xs"
+            style="@style/bodySmallMedium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivMoneyOne" />
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/spacing_xxs"
             android:strokeColor="@android:color/transparent"
             app:cardBackgroundColor="@color/color_light_sky_blue"
             app:cardCornerRadius="100dp"
@@ -78,11 +77,12 @@
                 android:id="@+id/tvPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/spacing_xs"
-                android:fontFamily="@font/be_vietnam_pro_semibold"
+                android:layout_gravity="center"
+                android:includeFontPadding="false"
                 android:paddingHorizontal="14dp"
-                android:text="@string/price_to_price"
-                android:textSize="12sp" />
+                android:paddingVertical="3dp"
+                android:text="$0"
+                style="@style/bodySmallSemiBold" />
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 

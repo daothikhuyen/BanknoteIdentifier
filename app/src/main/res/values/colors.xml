@@ -6,6 +6,7 @@
     <color name="color_primary">#91DDCE</color>
     <color name="color_primary_light">#E0FFF9</color>"
     <color name="color_primary_dark">#37767B</color>
+    <color name="color_primary_dark_hint">#7337767B</color>"
 
     <color name="color_light_sky_blue">#C7F3FF</color>"
     

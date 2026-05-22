@@ -10,16 +10,16 @@
 
     <item
         android:bottom="0dp"
-        android:left="-2dp"
-        android:right="-2dp"
+        android:left="-6dp"
+        android:right="-6dp"
         android:top="-20dp">
         <shape android:shape="rectangle">
             <stroke
                 android:width="0.5dp"
                 android:color="@color/color_border"
                 android:dashWidth="8dp"
-                android:dashGap="4dp" />
-            <corners android:radius="16dp" />
+                android:dashGap="3dp" />
+            <corners android:radius="28dp" />
         </shape>
     </item>
 </layer-list>
