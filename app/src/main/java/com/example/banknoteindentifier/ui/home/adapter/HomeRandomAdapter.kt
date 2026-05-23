@@ -11,9 +11,12 @@ import com.example.banknoteindentifier.R
 import com.example.banknoteindentifier.data.domain.entities.BankNote
 import com.example.banknoteindentifier.databinding.ItemRandomBanknoteBinding
 
-class HomeRandomAdapter : androidx.recyclerview.widget.ListAdapter<BankNote, HomeRandomAdapter.ViewHolder>(RandomDiffCallback) {
+class HomeRandomAdapter(var onClickToDetail: (BankNote) -> Unit) :
+    androidx.recyclerview.widget.ListAdapter<BankNote, HomeRandomAdapter.ViewHolder>(
+        RandomDiffCallback
+    ) {
 
-    class ViewHolder(private val binding: ItemRandomBanknoteBinding) :
+    inner class ViewHolder(private val binding: ItemRandomBanknoteBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         @SuppressLint("SetTextI18n")
@@ -29,23 +32,27 @@ class HomeRandomAdapter : androidx.recyclerview.widget.ListAdapter<BankNote, Hom
                 placeholder(R.drawable.img_empty)
             }
 
-            val firstPrice = bankNote.pricing.firstOrNull()?.price?.replace("$", "")?.toDoubleOrNull()
-            val secondPrice = bankNote.pricing.firstOrNull()?.price?.replace("$", "")?.toDoubleOrNull()
-            binding.tvTitle.text = bankNote.title
+            val firstPrice =
+                bankNote.pricing.firstOrNull()?.price?.replace("$", "")?.toDoubleOrNull() ?: 0.0
+            val secondPrice =
+                bankNote.pricing.lastOrNull()?.price?.replace("$", "")?.toDoubleOrNull() ?: 0.0
 
-            val textYear = bankNote.features.find { it.title == "Years" }?.value
-            binding.tvYear.isVisible = !textYear.isNullOrEmpty()
-            binding.tvYear.text = textYear
-
-            if(firstPrice != null && secondPrice != null){
+            if (firstPrice.toInt() != 0 || secondPrice.toInt() != 0) {
                 binding.tvPrice.text = "$ $firstPrice - $secondPrice"
-            }else{
+            } else {
                 binding.tvPrice.text = "$0"
             }
 
+            binding.tvTitle.text = bankNote.title
+
+            val textYear = bankNote.features.find { it.title == "Years" }?.value
+            binding.tvYear.isVisible = textYear != null
+            binding.tvYear.text = textYear
+
+            binding.root.setOnClickListener {
+                onClickToDetail(bankNote)
+            }
         }
-
-
     }
 
     override fun onCreateViewHolder(
@@ -63,6 +70,7 @@ class HomeRandomAdapter : androidx.recyclerview.widget.ListAdapter<BankNote, Hom
     ) {
         val bankNote = getItem(position)
         holder.bind(bankNote)
+
     }
 
     companion object {

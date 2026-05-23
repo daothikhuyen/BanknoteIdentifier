@@ -13,11 +13,10 @@
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/bai_jamjuree_bold"
         android:paddingVertical="@dimen/spacing_m"
         android:paddingHorizontal="@dimen/spacing_m"
         android:text="@string/name_app"
-        android:textSize="20sp"
+        style="@style/ToolbarTitleStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/spacing_m"
         app:cardElevation="4dp"
-        app:strokeWidth="0.5dp"
+        app:strokeWidth="0dp"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="@dimen/radius_m"
         app:layout_constraintTop_toBottomOf="@+id/tvTitle">
@@ -37,12 +36,13 @@
             android:id="@+id/searchView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:focusable="false"
+            android:paddingVertical="@dimen/spacing_s"
+            android:background="@null"
+            android:theme="@style/SearchTheme"
             app:queryBackground="@android:color/transparent"
             app:searchIcon="@drawable/ic_search_24dp"
             app:queryHint="@string/search_banknotes"
-            app:iconifiedByDefault="false"
-            app:defaultQueryHint="@string/search_banknotes"/>
+            app:iconifiedByDefault="false"/>
 
     </com.google.android.material.card.MaterialCardView>
 
@@ -77,18 +77,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/be_vietnam_pro_semibold"
                 android:text="@string/know_what_s_in_your_pocket"
-                android:textColor="@color/color_primary_dark"
-                android:textSize="14sp" />
+                android:theme="@style/bodyLargeSemiBold.PrimaryDark" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/be_vietnam_pro_regular"
                 android:text="@string/tap_here_to_recognize_a_collections"
-                android:textColor="@color/color_primary_dark"
-                android:textSize="14sp" />
+                android:theme="@style/bodyMediumRegular.PrimaryDark" />
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
@@ -97,9 +93,8 @@
         android:id="@+id/tvTitleTwo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/be_vietnam_pro_semibold"
         android:text="@string/recent_banknote"
-        android:textSize="16sp"
+        android:theme="@style/bodyLargeSemiBold"
         android:layout_marginTop="@dimen/spacing_m"
         android:layout_marginStart="@dimen/spacing_m"
         app:layout_constraintTop_toBottomOf="@+id/cvBanner"
@@ -118,9 +113,8 @@
         android:id="@+id/tvTitleThree"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/be_vietnam_pro_semibold"
         android:text="@string/random_banknote"
-        android:textSize="16sp"
+        android:theme="@style/bodyLargeSemiBold"
         android:layout_marginTop="@dimen/spacing_m"
         android:layout_marginStart="@dimen/spacing_m"
         app:layout_constraintTop_toBottomOf="@+id/rvRecentBanknote"

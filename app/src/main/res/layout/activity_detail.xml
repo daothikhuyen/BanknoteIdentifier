@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_primary_secondary"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.detail.DetailActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:contentInsetStartWithNavigation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_back_24dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:title="Banknote Info"
+        app:titleTextAppearance="@style/ToolbarTitleStyle" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/spacing_s">
+
+            <ImageView
+                android:id="@+id/imgMoneyOne"
+                android:layout_width="168dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/img_empty" />
+
+            <ImageView
+                android:id="@+id/imgMoneyTwo"
+                android:layout_width="168dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_xs"
+                android:adjustViewBounds="true"
+                android:src="@drawable/img_money_dollar" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvOne"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_s"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/spacing_m"
+                app:cardElevation="3dp"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                app:strokeWidth="0dp"
+                tools:layout_editor_absoluteX="16dp">
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    style="@style/bodyLargeSemiBold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:text="@string/detail_title"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvTwo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_s"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/spacing_m"
+                app:cardElevation="2dp"
+                app:layout_constraintTop_toBottomOf="@+id/materialCardView"
+                app:strokeWidth="0dp"
+                tools:layout_editor_absoluteX="16dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/spacing_m">
+
+                    <ImageView
+                        android:id="@+id/imgReference"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/todo"
+                        android:src="@drawable/ic_money_rounded_24dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvReferencePrice"
+                        style="@style/bodyLargeSemiBold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_s"
+                        android:text="@string/reference_price"
+                        app:layout_constraintBottom_toBottomOf="@id/imgReference"
+                        app:layout_constraintStart_toEndOf="@id/imgReference"
+                        app:layout_constraintTop_toTopOf="@id/imgReference" />
+
+                    <TextView
+                        android:id="@+id/tvPrice"
+                        style="@style/h4SemiBold"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_m"
+                        android:gravity="center"
+                        android:text="$200-$600"
+                        android:textColor="@color/color_primary_dark"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/imgReference" />
+
+                    <TextView
+                        android:id="@+id/tvYearLabel"
+                        style="@style/bodyLargeMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_m"
+                        android:text="Year"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvPrice" />
+
+                    <TextView
+                        android:id="@+id/tvYearValue"
+                        style="@style/bodyLargeMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1975"
+                        app:layout_constraintBaseline_toBaselineOf="@id/tvYearLabel"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvValueLabel"
+                        style="@style/bodyLargeMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_s"
+                        android:text="Value"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvYearLabel" />
+
+                    <TextView
+                        android:id="@+id/tvValue"
+                        style="@style/bodyLargeMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="100$"
+                        app:layout_constraintBaseline_toBaselineOf="@id/tvValueLabel"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_s"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/spacing_m"
+                app:cardElevation="2dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:strokeWidth="0dp"
+                tools:layout_editor_absoluteX="16dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_m">
+
+                    <ImageView
+                        android:id="@+id/ivIconMoneyTwo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/todo"
+                        android:src="@drawable/ic_money_rounded_24dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        style="@style/bodyLargeSemiBold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/description"
+                        app:layout_constraintStart_toEndOf="@+id/ivIconMoneyTwo"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:id="@+id/tvDescription"
+                        style="@style/bodyLargeMedium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_s"
+                        android:text="Each Federal Reserve note includes identifiers that provide information about the note, such as designating the year in which the note’s design was approved."
+                        app:layout_constraintTop_toBottomOf="@+id/ivIconMoneyTwo"
+                        tools:layout_editor_absoluteX="16dp" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/materialCardViewFour"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_s"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/spacing_m"
+                app:cardElevation="2dp"
+                app:layout_constraintTop_toBottomOf="@+id/materialCardView"
+                app:strokeWidth="0dp"
+                tools:layout_editor_absoluteX="16dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/spacing_m">
+
+                    <ImageView
+                        android:id="@+id/imgIconMoneyFour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/todo"
+                        android:src="@drawable/ic_money_rounded_24dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvPhysicalFeatures"
+                        style="@style/bodyLargeSemiBold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_s"
+                        android:text="@string/physical_features"
+                        app:layout_constraintBottom_toBottomOf="@id/imgIconMoneyFour"
+                        app:layout_constraintStart_toEndOf="@id/imgIconMoneyFour"
+                        app:layout_constraintTop_toTopOf="@id/imgIconMoneyFour" />
+
+                    <!-- feature -->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvPhysicalFeatures"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_m"
+                        app:layout_constraintHorizontal_weight="1.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/imgIconMoneyFour" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_s"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/spacing_m"
+                app:cardElevation="2dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:strokeWidth="0dp"
+                tools:layout_editor_absoluteX="16dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_m">
+
+                    <ImageView
+                        android:id="@+id/ivIconMoney"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:contentDescription="@string/todo"
+                        android:src="@drawable/ic_money_rounded_24dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        style="@style/bodyLargeSemiBold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lettering"
+                        app:layout_constraintStart_toEndOf="@+id/ivIconMoney"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:id="@+id/tvLettering"
+                        style="@style/bodyMediumMedium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_s"
+                        android:text="Each Federal Reserve note includes identifiers that provide information about the note, such as designating the year in which the note’s design was approved."
+                        app:layout_constraintTop_toBottomOf="@+id/ivIconMoney" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <Button
+                android:id="@+id/btnAddCollection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/spacing_s"
+                android:background="@drawable/bg_button_add"
+                android:text="@string/add_to_collection"
+                android:textColor="@color/color_primary_dark"
+                android:theme="@style/h4SemiBold"
+                app:backgroundTint="@null" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

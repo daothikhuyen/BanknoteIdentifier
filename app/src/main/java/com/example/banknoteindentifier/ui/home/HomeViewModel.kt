@@ -10,8 +10,12 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 class HomeViewModel(private val repository: BankNoteRepository) : ViewModel() {
-    private val _bankNotes = MutableStateFlow<List<BankNote>>(emptyList())
-    val bankNotes: StateFlow<List<BankNote>> = _bankNotes
+    private val _recentBankNotes = MutableStateFlow<List<BankNote>>(emptyList())
+    val recentBankNotes: StateFlow<List<BankNote>> = _recentBankNotes
+
+    private val _randomBankNotes = MutableStateFlow<List<BankNote>>(emptyList())
+    val randomBankNotes: StateFlow<List<BankNote>> = _randomBankNotes
+
 
     init {
         getBankNotes()
@@ -20,7 +24,9 @@ class HomeViewModel(private val repository: BankNoteRepository) : ViewModel() {
     private fun getBankNotes(){
         viewModelScope.launch {
             repository.getBankNote().collect{
-                _bankNotes.value = it.data
+                val response = it.data
+                _recentBankNotes.value = response.take(10)
+                _randomBankNotes.value = response.shuffled().take(10)
             }
         }
     }
