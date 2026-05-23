@@ -13,11 +13,10 @@
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/bai_jamjuree_bold"
         android:paddingVertical="@dimen/spacing_m"
         android:paddingHorizontal="@dimen/spacing_m"
         android:text="@string/name_app"
-        android:textSize="20sp"
+        style="@style/ToolbarTitleStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

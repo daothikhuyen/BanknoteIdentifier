@@ -15,4 +15,6 @@
 
     <color name="bottom_nav_selected_item">#37767B</color>"
     <color name="bottom_nav_unselected_item">#ACACAC</color>
+
+    <color name="color_error">#E91E63</color>
 </resources>

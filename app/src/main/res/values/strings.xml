@@ -12,7 +12,7 @@
     <string name="collection">Collection</string>
     <string name="home">Home</string>
     <string name="price_to_price">$ %d-%d</string>
-    <string name="search_banknotes">Search banknotes…</string>
+    <string name="search_banknotes">Search banknote</string>
     <string name="detail_title">United states of america -USA 100 Dollar Banknote, 2017</string>
     <string name="todo">TODO</string>
     <string name="reference_price">Reference Price</string>
@@ -21,4 +21,5 @@
     <string name="lettering">Lettering</string>
     <string name="add_to_collection">Add to Collection</string>
     <string name="not_yet_released">Not yet released</string>
+    <string name="remove_collection">Remove the collection</string>
 </resources>

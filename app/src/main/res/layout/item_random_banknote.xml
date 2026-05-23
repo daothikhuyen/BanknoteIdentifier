@@ -4,8 +4,10 @@
     android:id="@+id/bankNoteItem"
     android:layout_width="305dp"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_primary_border_dash_bottom"
     android:layout_marginEnd="@dimen/spacing_s"
+    android:background="@drawable/bg_secondary"
+    android:backgroundTint="@color/color_primary_secondary"
+    android:foreground="@drawable/bg_primary_border_dash_bottom"
     android:padding="@dimen/spacing_s">
 
     <LinearLayout
@@ -13,6 +15,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="100:50"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -38,29 +42,29 @@
         android:layout_marginStart="@dimen/spacing_s"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/tvTitle"
+            style="@style/bodyLargeSemiBold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="2"
             android:text="1/4 Dolar “Washington Silver Quarter"
-            style="@style/bodyLargeSemiBold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivMoneyOne" />
 
         <TextView
             android:id="@+id/tvYear"
+            style="@style/bodySmallMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/spacing_xxs"
             android:text="1932 - 1964"
             android:textColor="@color/color_border"
-            style="@style/bodySmallMedium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivMoneyOne" />
 
@@ -75,14 +79,14 @@
 
             <TextView
                 android:id="@+id/tvPrice"
+                style="@style/bodySmallSemiBold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:includeFontPadding="false"
                 android:paddingHorizontal="14dp"
                 android:paddingVertical="3dp"
-                android:text="$0"
-                style="@style/bodySmallSemiBold" />
+                android:text="$0" />
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 

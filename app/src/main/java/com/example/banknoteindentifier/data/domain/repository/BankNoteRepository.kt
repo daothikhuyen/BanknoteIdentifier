@@ -7,7 +7,10 @@ import kotlinx.coroutines.flow.Flow
 interface BankNoteRepository {
 
     suspend fun getBankNote() : Flow<BankNoteResponse>
-    fun getCollectionById(id : String) : Flow<BankNote>
 
-    suspend fun toggleCollection(bankNote: BankNote) : Flow<Boolean>
+    fun getCollection() : Flow<List<BankNote>>
+
+    fun getCollectionById(id : String) : Flow<Boolean>
+
+    suspend fun toggleCollection(bankNote: BankNote)
 }

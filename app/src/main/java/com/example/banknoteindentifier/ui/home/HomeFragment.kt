@@ -53,8 +53,8 @@ class HomeFragment : Fragment() {
         binding.rvRecentBanknote.adapter = HomeRecentAdapter
         binding.rvRecentBanknote.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        viewModel.bankNotes.asLiveData().observe(viewLifecycleOwner) {
-            HomeRecentAdapter.submitList(it.take(10))
+        viewModel.recentBankNotes.asLiveData().observe(viewLifecycleOwner) {
+            HomeRecentAdapter.submitList(it)
         }
     }
 
@@ -62,8 +62,8 @@ class HomeFragment : Fragment() {
         binding.rvRandomBanknote.adapter = HomeRandomAdapter
         binding.rvRandomBanknote.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        viewModel.bankNotes.asLiveData().observe(viewLifecycleOwner) {
-            HomeRandomAdapter.submitList(it.shuffled().take(10))
+        viewModel.randomBankNotes.asLiveData().observe(viewLifecycleOwner) {
+            HomeRandomAdapter.submitList(it)
         }
     }
 

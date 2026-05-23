@@ -11,22 +11,21 @@ import kotlinx.parcelize.Parcelize
 @Entity(tableName = "collection")
 data class BankNote(
 
-    @PrimaryKey
     @SerializedName("_id")
+    @PrimaryKey
     val id: String,
     @SerializedName("country_region")
     val countryRegion: String,
     val originURL: String,
     val title: String,
     val flag: String,
-    @Embedded
-    val images: ArrayList<String>,
+    val images: List<String>,
+    @Embedded(prefix = "obverse")
     val obverse: Obverse,
+    @Embedded(prefix = "reverse")
     val reverse: Reverse,
-    @Embedded
-    val features: ArrayList<Features>,
-    @Embedded
-    val pricing: ArrayList<Pricing>
+    val features: List<Features>,
+    val pricing: List<Pricing>
 ) : Parcelable {
 
 }

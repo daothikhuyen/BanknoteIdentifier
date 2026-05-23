@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bankNoteItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/spacing_s"
+    android:layout_marginBottom="@dimen/spacing_s"
+    android:layout_marginHorizontal="@dimen/spacing_m"
+    app:cardElevation="8dp"
+    app:strokeWidth="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_secondary"
+        android:backgroundTint="@color/white"
+        android:foreground="@drawable/bg_primary_border_dash_bottom"
+        android:padding="@dimen/spacing_s">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imgMoneyOne"
+                android:layout_width="50dp"
+                android:layout_height="22dp"
+                android:layout_marginVertical="@dimen/spacing_xs"
+                android:src="@drawable/img_empty" />
+
+            <ImageView
+                android:id="@+id/imgMoneyTwo"
+                android:layout_width="50dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="@dimen/spacing_xs"
+                android:src="@drawable/img_empty" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/spacing_s"
+            android:orientation="vertical"
+            android:layout_marginTop="-4dp"
+            android:layout_marginBottom="-4dp"
+            app:layout_constraintStart_toEndOf="@id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/linearLayout"
+            app:layout_constraintBottom_toBottomOf="@id/linearLayout">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="1/4 Dolar “Washington Silver Quarter 1/4 Dolar “Washington Silver Quarter"
+                style="@style/bodyMediumMedium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivMoneyOne" />
+
+            <TextView
+                android:id="@+id/tvYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_xxs"
+                android:text="1932 - 1964"
+                android:textColor="@color/color_border"
+                style="@style/bodySmallMedium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivMoneyOne" />
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
