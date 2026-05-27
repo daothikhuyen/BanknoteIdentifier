@@ -78,10 +78,9 @@ class SearchViewModel(private val bankNoteRepository: BankNoteRepository) : View
         }
     }
 
-    private suspend fun updateList(list: List<BankNote>) {
+    private fun updateList(list: List<BankNote>) {
         val currentList = _searchBankNotes.value.toMutableList()
         currentList.addAll(list)
-        delay(1000)
         _searchBankNotes.value = currentList
         if (list.isEmpty()) {
             isLastPage = true
