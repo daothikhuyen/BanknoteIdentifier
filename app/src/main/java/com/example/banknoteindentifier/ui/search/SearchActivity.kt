@@ -3,6 +3,7 @@ package com.example.banknoteindentifier.ui.search
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -77,6 +78,9 @@ class SearchActivity : AppCompatActivity() {
             val closeButton = findViewById<ImageView>(androidx.appcompat.R.id.search_close_btn)
             closeButton.setImageResource(R.drawable.ic_close_35dp)
             closeButton.elevation = 12f
+            val params =closeButton.layoutParams as ViewGroup.MarginLayoutParams
+            params.topMargin = (2 * resources.displayMetrics.density).toInt()
+            closeButton.layoutParams = params
         }
     }
 

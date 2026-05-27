@@ -54,6 +54,9 @@ class CollectionFragment : Fragment() {
             val closeButton = findViewById<ImageView>(androidx.appcompat.R.id.search_close_btn)
             closeButton.setImageResource(R.drawable.ic_close_35dp)
             closeButton.elevation = 12f
+            val params =closeButton.layoutParams as ViewGroup.MarginLayoutParams
+            params.topMargin = (2 * resources.displayMetrics.density).toInt()
+            closeButton.layoutParams = params
         }
     }
 
