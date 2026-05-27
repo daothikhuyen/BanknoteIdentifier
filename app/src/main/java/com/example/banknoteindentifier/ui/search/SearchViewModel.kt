@@ -67,13 +67,13 @@ class SearchViewModel(private val bankNoteRepository: BankNoteRepository) : View
     }
 
     fun onSubmitSearch(keyword: String) {
-        try {
-            viewModelScope.launch {
-                val result = bankNoteRepository.searchByText(keyword, currentPage)
-                updateList(result)
-            }
-        }catch (e : Exception){
-            Log.d("error onSubmitSearch", e.toString())
+        viewModelScope.launch {
+           try {
+               val result = bankNoteRepository.searchByText(keyword, currentPage)
+               updateList(result)
+           }catch (e : Exception){
+               Log.d("error onSubmitSearch", e.toString())
+           }
         }
     }
 
