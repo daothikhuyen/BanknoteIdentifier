@@ -15,23 +15,6 @@ import com.example.banknoteindentifier.data.source.local.dao.CollectionBankNoteD
 )
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
-
     abstract fun collectionBankNoteDao(): CollectionBankNoteDao
 
-    companion object {
-        private var INSTANCE: AppDatabase? = null
-
-        fun getInstance(context: Context): AppDatabase {
-            if (INSTANCE == null) {
-                synchronized(AppDatabase::class) {
-                    INSTANCE = Room.databaseBuilder(
-                        context.applicationContext,
-                        AppDatabase::class.java,
-                        "banknote.db"
-                    ).build()
-                }
-            }
-            return INSTANCE!!
-        }
-    }
 }
