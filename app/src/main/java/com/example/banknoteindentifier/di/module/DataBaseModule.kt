@@ -1,17 +1,26 @@
 package com.example.banknoteindentifier.di.module
 
-import com.example.banknoteindentifier.data.source.remote.ApiService
-import com.example.banknoteindentifier.utils.AppConstant
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import android.content.Context
+import androidx.room.Room
+import com.example.banknoteindentifier.data.source.local.dao.CollectionBankNoteDao
+import com.example.banknoteindentifier.data.source.local.database.AppDatabase
+import org.koin.android.ext.koin.androidApplication
+import org.koin.core.module.dsl.singleOf
+import org.koin.dsl.module
 
-object RetrofitClient {
-    private  const  val BASE_URL = AppConstant.BASE_URL_GET
+fun provideDatabase(context: Context): AppDatabase {
+    return Room.databaseBuilder(
+        context.applicationContext,
+        AppDatabase::class.java,
+        "banknote.db"
+    ).build()
+}
 
-    val apiService: ApiService =
-        Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-            .create(ApiService::class.java)
+fun provideCollectionBankNoteDao(database: AppDatabase) : CollectionBankNoteDao {
+    return database.collectionBankNoteDao()
+}
+
+val databaseModule = module {
+    single { provideDatabase(androidApplication()) }
+    singleOf(::provideCollectionBankNoteDao)
 }

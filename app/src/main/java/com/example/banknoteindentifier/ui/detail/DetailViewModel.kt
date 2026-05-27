@@ -14,10 +14,22 @@ class DetailViewModel(private val repository: BankNoteRepository) : ViewModel() 
     private val _isCollection = MutableStateFlow<Boolean>(false)
     val isCollection: Flow<Boolean> = _isCollection
 
+    private val _bankNoteDetail = MutableStateFlow<BankNote?>(null)
+    val bankNoteDetail: Flow<BankNote?> = _bankNoteDetail
+    fun getBankNoteById(id: String) {
+        viewModelScope.launch {
+            try {
+                val result = repository.getBankNoteById(id)
+                _bankNoteDetail.value = result
+            } catch (e: Exception) {
+                Log.d("error", e.toString())
+            }
+        }
+    }
+
     fun getCollectionById(id: String){
         viewModelScope.launch {
             try {
-                Log.d("id", id)
                 repository.getCollectionById(id).collect { isExisted ->
                     _isCollection.value = isExisted
                 }

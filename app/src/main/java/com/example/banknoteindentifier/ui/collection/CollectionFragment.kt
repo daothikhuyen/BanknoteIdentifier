@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.asLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.banknoteindentifier.R
@@ -37,16 +39,44 @@ class CollectionFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initView()
+        onSubmitSearch()
+    }
+
+    fun initView(){
         binding.rvCollection.adapter = collectionAdapter
         binding.rvCollection.layoutManager = LinearLayoutManager(context)
         viewModel.collections.asLiveData().observe(viewLifecycleOwner) {
             collectionAdapter.submitList(it)
         }
+
+        binding.searchView.apply {
+            val closeButton = findViewById<ImageView>(androidx.appcompat.R.id.search_close_btn)
+            closeButton.setImageResource(R.drawable.ic_close_35dp)
+            closeButton.elevation = 12f
+        }
+    }
+
+    fun onSubmitSearch(){
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+
+            override fun onQueryTextSubmit(keyword: String?): Boolean {
+                viewModel.onSubmitSearch(keyword.toString())
+                return true
+            }
+
+            override fun onQueryTextChange(newtext: String?): Boolean {
+                if (newtext.isNullOrBlank()) {
+                    viewModel.getCollections()
+                }
+                return true
+            }
+        })
     }
 
     fun onClickToDetail(item: BankNote) {
         val intent = Intent(context, DetailActivity::class.java)
-        intent.putExtra(AppConstant.BANKNOTE_DETAIL, item)
+        intent.putExtra(AppConstant.BANKNOTE_ID, item.id)
         startActivity(intent)
     }
 

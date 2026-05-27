@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.onboard.fragment.OnBoardFirstFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/diem_16"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/be_vietnam_pro_medium"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/diem_24"
+            android:text="@string/what_do_you_want_to_use_the_app_for"
+            android:textColor="@color/color_primary_dark"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clBankNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/diem_16"
+            android:background="@drawable/bg_onboard"
+            android:padding="@dimen/diem_16"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle">
+
+            <ImageView
+                android:id="@+id/imgBanknote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_scan_32dp"
+                app:layout_constraintBottom_toBottomOf="@id/tvOptionBankNote"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvOptionBankNote" />
+
+            <TextView
+                android:id="@+id/tvOptionBankNote"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/diem_16"
+                android:fontFamily="@font/be_vietnam_pro_medium"
+                android:text="@string/identify_banknotes"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/imgBanknote"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clCoin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/diem_16"
+            android:background="@drawable/bg_onboard"
+            android:padding="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/clBankNote">
+
+            <ImageView
+                android:id="@+id/imgScanCoin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_scan_32dp"
+                app:layout_constraintBottom_toBottomOf="@id/tvOptionCoin"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvOptionCoin" />
+
+            <TextView
+                android:id="@+id/tvOptionCoin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/diem_16"
+                android:fontFamily="@font/be_vietnam_pro_medium"
+                android:text="@string/identify_banknotes"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/imgScanCoin"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clCheckValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/diem_16"
+            android:background="@drawable/bg_onboard"
+            android:padding="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/clCoin">
+
+            <ImageView
+                android:id="@+id/imgCheckMoney"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_zoom_money_32dp"
+                app:layout_constraintBottom_toBottomOf="@id/tvOptionCheckMoney"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvOptionCheckMoney" />
+
+            <TextView
+                android:id="@+id/tvOptionCheckMoney"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/diem_16"
+                android:fontFamily="@font/be_vietnam_pro_medium"
+                android:text="@string/check_collector_value"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/imgCheckMoney"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clLearn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/diem_16"
+            android:background="@drawable/bg_onboard"
+            android:padding="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/clCheckValue">
+
+            <ImageView
+                android:id="@+id/imgBook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_book_32dp"
+                app:layout_constraintBottom_toBottomOf="@id/tvOptionBook"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvOptionBook" />
+
+            <TextView
+                android:id="@+id/tvOptionBook"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/diem_16"
+                android:fontFamily="@font/be_vietnam_pro_medium"
+                android:text="@string/learn_about_currencies"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/imgBook"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

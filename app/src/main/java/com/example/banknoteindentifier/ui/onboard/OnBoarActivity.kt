@@ -1,4 +1,4 @@
-package com.example.banknoteindentifier.ui.onboar
+package com.example.banknoteindentifier.ui.onboard
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,11 +9,11 @@ import androidx.lifecycle.asLiveData
 import androidx.viewpager2.widget.ViewPager2
 import com.example.banknoteindentifier.databinding.ActivityOnBoarBinding
 import com.example.banknoteindentifier.ui.main.MainActivity
-import com.example.banknoteindentifier.ui.onboar.adapter.OnBoarAdapter
+import com.example.banknoteindentifier.ui.onboard.adapter.OnBoarAdapter
 import androidx.core.content.edit
 import com.example.banknoteindentifier.utils.AppConstant
 
-class OnBoarActivity : AppCompatActivity() {
+class  OnBoarActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityOnBoarBinding
     private val viewModel: OnBoarViewModel by viewModels()
@@ -49,7 +49,7 @@ class OnBoarActivity : AppCompatActivity() {
             val nextPage = binding.viewPager.currentItem + 1
             if(nextPage < adapter.itemCount){
                 binding.viewPager.setCurrentItem(nextPage, true)
-                viewModel.checkNextEnable(nextPage)
+                viewModel.reset()
             }else{
                 val sharedPrefKey = getSharedPreferences(AppConstant.APP_SHARED_PREFERENCES, MODE_PRIVATE)
                 sharedPrefKey.edit { putBoolean(AppConstant.IS_FIRST_TIME, false) }

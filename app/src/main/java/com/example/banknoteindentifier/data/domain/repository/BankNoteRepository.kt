@@ -6,11 +6,17 @@ import kotlinx.coroutines.flow.Flow
 
 interface BankNoteRepository {
 
-    suspend fun getBankNote() : Flow<BankNoteResponse>
+    suspend fun getBankNote(page: Int) : Flow<BankNoteResponse>
+
+    suspend fun getBankNoteById(id : String) : BankNote
 
     fun getCollection() : Flow<List<BankNote>>
 
-    fun getCollectionById(id : String) : Flow<Boolean>
+    suspend fun getCollectionById(id : String) : Flow<Boolean>
 
     suspend fun toggleCollection(bankNote: BankNote)
+
+    suspend fun searchByText(query : String, page: Int) : List<BankNote>
+
+    suspend fun searchByTextCollection(query : String) : List<BankNote>
 }

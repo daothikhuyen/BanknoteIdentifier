@@ -6,13 +6,13 @@
     android:id="@+id/cvOption"
     app:strokeWidth="2dp"
     android:backgroundTint="@color/white"
-    android:layout_marginTop="@dimen/spacing_m"
+    android:layout_marginTop="@dimen/diem_16"
     android:background="?attr/selectableItemBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/spacing_m">
+        android:padding="@dimen/diem_16">
 
         <ImageView
             android:id="@+id/imageView"
@@ -22,7 +22,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_m"
+            android:layout_marginStart="@dimen/diem_16"
             android:orientation="vertical"
             android:layout_gravity="center">
             <TextView
@@ -43,6 +43,4 @@
                 android:text="Banknote"/>
         </LinearLayout>
     </LinearLayout>
-
-
 </com.google.android.material.card.MaterialCardView>

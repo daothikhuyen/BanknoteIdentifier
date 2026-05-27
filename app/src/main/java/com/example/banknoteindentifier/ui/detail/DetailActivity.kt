@@ -1,13 +1,11 @@
 package com.example.banknoteindentifier.ui.detail
 
-import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.asLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
-import coil.load
+import com.bumptech.glide.Glide
 import com.example.banknoteindentifier.R
 import com.example.banknoteindentifier.data.domain.entities.BankNote
 import com.example.banknoteindentifier.databinding.ActivityDetailBinding
@@ -27,11 +25,23 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        initView()
+    }
+
+    fun initView(){
         binding.toolbar.setNavigationOnClickListener {
             finish()
         }
 
         loadBanknote()
+
+        viewModel.bankNoteDetail.asLiveData().observe(this) { bankNote ->
+            bankNote?.let {
+                itemBankNote = it
+                updateUI(it)
+            }
+        }
+
         viewModel.isCollection.asLiveData().observe(this) {
             statusButtonAdd(it)
         }
@@ -40,10 +50,13 @@ class DetailActivity : AppCompatActivity() {
             viewModel.toggleCollection(itemBankNote ?: return@setOnClickListener)
         }
 
+        binding.rvPhysicalFeatures.apply {
+            adapter = featureAdapter
+            layoutManager = LinearLayoutManager(this@DetailActivity)
+        }
     }
 
     private fun statusButtonAdd(isCollection : Boolean){
-        Log.d("isCollection", isCollection.toString())
         if(isCollection){
             binding.btnAddCollection.text = getString(R.string.remove_collection)
             binding.btnAddCollection.setBackgroundResource(R.drawable.bg_button_remove)
@@ -56,22 +69,26 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun loadBanknote() {
-        val bankNote =
-            intent.getParcelableExtra<BankNote>(AppConstant.BANKNOTE_DETAIL)
+        val id =
+            intent.getStringExtra(AppConstant.BANKNOTE_ID)
                 ?: return
-        itemBankNote = bankNote
-        Log.d("itemBankNote", itemBankNote.toString())
-        viewModel.getCollectionById(itemBankNote?.id ?: "")
 
-        binding.imgMoneyOne.load(bankNote.images.getOrNull(0)) {
-            error(R.drawable.img_empty)
-            placeholder(R.drawable.img_empty)
-        }
+        viewModel.getBankNoteById(id)
+        viewModel.getCollectionById(id)
+    }
 
-        binding.imgMoneyTwo.load(bankNote.images.getOrNull(1)) {
-            error(R.drawable.img_empty)
-            placeholder(R.drawable.img_money_dollar)
-        }
+    private fun updateUI(bankNote: BankNote) {
+        Glide.with(binding.root.context)
+            .load(bankNote.images.getOrNull(0))
+            .error(R.drawable.img_empty)
+            .placeholder(R.drawable.img_empty)
+            .into(binding.imgMoneyOne)
+
+        Glide.with(binding.root.context)
+            .load(bankNote.images.getOrNull(1))
+            .error(R.drawable.img_empty)
+            .placeholder(R.drawable.img_empty)
+            .into(binding.imgMoneyTwo)
 
         binding.tvTitle.text = bankNote.title
 
@@ -84,10 +101,6 @@ class DetailActivity : AppCompatActivity() {
                 getString(R.string.not_yet_released)
             }
 
-        binding.rvPhysicalFeatures.apply {
-            adapter = featureAdapter
-            layoutManager = LinearLayoutManager(this@DetailActivity)
-        }
         featureAdapter.submitList(bankNote.features)
     }
 }

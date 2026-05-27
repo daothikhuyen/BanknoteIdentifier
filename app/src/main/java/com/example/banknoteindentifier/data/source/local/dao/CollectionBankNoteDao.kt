@@ -24,4 +24,7 @@ interface CollectionBankNoteDao {
     @Query("SELECT * FROM collection WHERE id = :id")
     fun getCollectionItemOnce(id : String): BankNote?
 
+    @Query("SELECT * FROM collection WHERE title LIKE '%' || :query || '%'")
+    suspend fun searchByText(query : String) : List<BankNote>
+
 }

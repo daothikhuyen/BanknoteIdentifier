@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
+import com.bumptech.glide.Glide
 import com.example.banknoteindentifier.R
 import com.example.banknoteindentifier.data.domain.entities.BankNote
 import com.example.banknoteindentifier.databinding.ItemRandomBanknoteBinding
@@ -19,18 +19,20 @@ class HomeRandomAdapter(var onClickToDetail: (BankNote) -> Unit) :
     inner class ViewHolder(private val binding: ItemRandomBanknoteBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        @SuppressLint("SetTextI18n")
+        @SuppressLint("SetTextI18n", "CheckResult")
         fun bind(bankNote: BankNote) {
 
-            binding.imgMoneyOne.load(bankNote.images.getOrNull(1)) {
-                error(R.drawable.img_empty)
-                placeholder(R.drawable.img_empty)
-            }
+            Glide.with(binding.root.context)
+                .load(bankNote.images.getOrNull(0))
+                .error(R.drawable.img_empty)
+                .placeholder(R.drawable.img_empty)
+                .into(binding.imgMoneyOne)
 
-            binding.imgMoneyTwo.load(bankNote.images.getOrNull(1)) {
-                error(R.drawable.img_empty)
-                placeholder(R.drawable.img_empty)
-            }
+            Glide.with(binding.root.context)
+                .load(bankNote.images.getOrNull(1))
+                .error(R.drawable.img_empty)
+                .placeholder(R.drawable.img_empty)
+                .into(binding.imgMoneyTwo)
 
             val firstPrice =
                 bankNote.pricing.firstOrNull()?.price?.replace("$", "")?.toDoubleOrNull() ?: 0.0

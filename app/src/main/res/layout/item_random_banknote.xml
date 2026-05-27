@@ -4,11 +4,11 @@
     android:id="@+id/bankNoteItem"
     android:layout_width="305dp"
     android:layout_height="wrap_content"
-    android:layout_marginEnd="@dimen/spacing_s"
+    android:layout_marginEnd="@dimen/diem_8"
     android:background="@drawable/bg_secondary"
     android:backgroundTint="@color/color_primary_secondary"
     android:foreground="@drawable/bg_primary_border_dash_bottom"
-    android:padding="@dimen/spacing_s">
+    android:padding="@dimen/diem_8">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -16,30 +16,31 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="100:50"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/imgMoneyOne"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_xs"
+            android:layout_width="90dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="@dimen/diem_4"
+            android:scaleType="centerCrop"
             android:src="@drawable/img_empty" />
 
         <ImageView
             android:id="@+id/imgMoneyTwo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="90dp"
+            android:layout_height="44dp"
             android:layout_marginTop="2dp"
-            android:layout_marginBottom="@dimen/spacing_xs"
+            android:layout_marginBottom="@dimen/diem_4"
+            android:scaleType="centerCrop"
             android:src="@drawable/img_empty" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/spacing_s"
+        android:layout_marginStart="@dimen/diem_8"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,30 +49,32 @@
 
         <TextView
             android:id="@+id/tvTitle"
-            style="@style/bodyLargeSemiBold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
+            android:fontFamily="@font/be_vietnam_pro_semibold"
             android:maxLines="2"
             android:text="1/4 Dolar “Washington Silver Quarter"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivMoneyOne" />
 
         <TextView
             android:id="@+id/tvYear"
-            style="@style/bodySmallMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/spacing_xxs"
+            android:layout_marginBottom="@dimen/diem_2"
+            android:fontFamily="@font/be_vietnam_pro_medium"
             android:text="1932 - 1964"
             android:textColor="@color/color_border"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivMoneyOne" />
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:layout_marginVertical="@dimen/diem_2"
             android:strokeColor="@android:color/transparent"
             app:cardBackgroundColor="@color/color_light_sky_blue"
             app:cardCornerRadius="100dp"
@@ -79,14 +82,15 @@
 
             <TextView
                 android:id="@+id/tvPrice"
-                style="@style/bodySmallSemiBold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:fontFamily="@font/be_vietnam_pro_medium"
                 android:includeFontPadding="false"
                 android:paddingHorizontal="14dp"
                 android:paddingVertical="3dp"
-                android:text="$0" />
+                android:text="$0"
+                android:textSize="12sp" />
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 

@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.core.view.WindowCompat.enableEdgeToEdge
 import androidx.lifecycle.asLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,6 +16,7 @@ import com.example.banknoteindentifier.databinding.FragmentHomeBinding
 import com.example.banknoteindentifier.ui.detail.DetailActivity
 import com.example.banknoteindentifier.ui.home.adapter.HomeRandomAdapter
 import com.example.banknoteindentifier.ui.home.adapter.HomeRecentAdapter
+import com.example.banknoteindentifier.ui.search.SearchActivity
 import com.example.banknoteindentifier.utils.AppConstant
 import kotlinx.coroutines.flow.take
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -25,9 +27,11 @@ class HomeFragment : Fragment() {
 
     private val viewModel: HomeViewModel by viewModel()
 
-    private val HomeRecentAdapter by lazy { HomeRecentAdapter(
-        onClickToDetail = ::onClickToDetail
-    ) }
+    private val HomeRecentAdapter by lazy {
+        HomeRecentAdapter(
+            onClickToDetail = ::onClickToDetail
+        )
+    }
     private val HomeRandomAdapter by lazy {
         HomeRandomAdapter(
             onClickToDetail = ::onClickToDetail
@@ -45,8 +49,27 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initView()
         initViewRecycleViewRecent()
         initViewRecycleViewRandom()
+    }
+
+    fun initView() {
+
+        binding.searchView.apply {
+            val searchEditText = findViewById<EditText>(androidx.appcompat.R.id.search_src_text)
+
+            searchEditText.isCursorVisible = false
+            searchEditText.isFocusable = false
+            searchEditText.isFocusableInTouchMode = false
+
+            val openSearch = {
+                startActivity(Intent(requireContext(), SearchActivity::class.java))
+            }
+
+            setOnClickListener { openSearch() }
+            searchEditText.setOnClickListener { openSearch() }
+        }
     }
 
     fun initViewRecycleViewRecent() {
@@ -67,9 +90,9 @@ class HomeFragment : Fragment() {
         }
     }
 
-    fun onClickToDetail(item : BankNote) {
+    fun onClickToDetail(item: BankNote) {
         val intent = Intent(requireContext(), DetailActivity::class.java)
-        intent.putExtra(AppConstant.BANKNOTE_DETAIL, item)
+        intent.putExtra(AppConstant.BANKNOTE_ID, item.id)
         startActivity(intent)
     }
 }

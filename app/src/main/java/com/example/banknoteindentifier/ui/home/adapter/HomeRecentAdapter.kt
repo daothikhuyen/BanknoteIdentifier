@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
+import com.bumptech.glide.Glide
 import com.example.banknoteindentifier.R
 import com.example.banknoteindentifier.data.domain.entities.BankNote
 import com.example.banknoteindentifier.databinding.ItemRecentBanknoteBinding
@@ -17,15 +17,18 @@ class HomeRecentAdapter(var onClickToDetail: (BankNote) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(bankNote: BankNote) {
-            binding.imgMoneyOne.load(bankNote.images.getOrNull(1)) {
-                error(R.drawable.img_empty)
-                placeholder(R.drawable.img_empty)
-            }
+            Glide.with(binding.root.context)
+                .load(bankNote.images.getOrNull(0))
+                .error(R.drawable.img_empty)
+                .placeholder(R.drawable.img_empty)
+                .into(binding.imgMoneyOne)
 
-            binding.imgMoneyTwo.load(bankNote.images.getOrNull(1)) {
-                error(R.drawable.img_empty)
-                placeholder(R.drawable.img_empty)
-            }
+            Glide.with(binding.root.context)
+                .load(bankNote.images.getOrNull(1))
+                .error(R.drawable.img_empty)
+                .placeholder(R.drawable.img_empty)
+                .into(binding.imgMoneyTwo)
+
             val price = bankNote.pricing.firstOrNull()?.price?.replace("$", "")?.toDoubleOrNull()
             binding.tvPrice.text = if (price != null) "$price" else "0"
             binding.tvCountry.text = bankNote.countryRegion
