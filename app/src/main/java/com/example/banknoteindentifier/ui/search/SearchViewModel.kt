@@ -33,8 +33,6 @@ class SearchViewModel(private val bankNoteRepository: BankNoteRepository) : View
             }
         }catch (e : Exception){
             Log.d("error getBankNotes", e.toString())
-            isLastPage = true
-            _isLoadingMore.value = false
         }
     }
 
@@ -61,6 +59,7 @@ class SearchViewModel(private val bankNoteRepository: BankNoteRepository) : View
                 }
             } catch (e: Exception) {
                 Log.d("error loadMore", e.toString())
+                isLastPage = true
             } finally {
                 _isLoadingMore.value = false
             }
