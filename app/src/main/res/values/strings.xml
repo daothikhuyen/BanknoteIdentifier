@@ -21,5 +21,22 @@
     <string name="lettering">Lettering</string>
     <string name="add_to_collection">Add to Collection</string>
     <string name="not_yet_released">Not yet released</string>
-    <string name="remove_collection">Remove the collection</string>
+    <string name="remove_collection">Remove from Collection</string>
+    <string name="search">Search</string>
+    <string name="no_data">No data</string>
+    <string name="banknote">Banknote</string>
+    <string name="paper_bills_collectible_notes">Paper bills collectible notes</string>
+    <string name="modern_old_coins"><![CDATA[Modern & old coins]]></string>
+    <string name="coin">Coin</string>
+    <string name="both">Both</string>
+    <string name="i_collect_everything">I collect everything.</string>
+    <string name="what_do_you_want_to_use_the_app_for">What do you want to use the app for?</string>
+    <string name="identify_banknotes">Identify banknotes</string>
+    <string name="check_collector_value">Check collector value</string>
+    <string name="focus_on_history_origin"><![CDATA[Focus on history & origin]]></string>
+    <string name="focus_on_collector_value">Focus on collector value</string>
+    <string name="full_detailed_info">Full detailed info</string>
+    <string name="simple_easy_to_read"><![CDATA[Simple & easy to read]]></string>
+    <string name="how_do_you_prefer_your_results_displayed">How do you prefer your results displayed?</string>
+    <string name="learn_about_currencies">Learn about currencies</string>
 </resources>

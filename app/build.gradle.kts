@@ -64,7 +64,9 @@ dependencies {
     ksp("androidx.room:room-compiler:$room_version")
 
     // coil
-    implementation("io.coil-kt:coil:2.6.0")
+//    implementation("io.coil-kt:coil:2.6.0")
+    // Glide
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 
     val koin_version= "4.2.0"
     //Koin

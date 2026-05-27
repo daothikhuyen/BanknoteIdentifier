@@ -5,36 +5,38 @@
     android:id="@+id/bankNoteItem"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginEnd="@dimen/spacing_s"
+    android:layout_marginEnd="@dimen/diem_8"
     android:background="@color/white">
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_primary_border_dash_bottom"
+        android:background="@drawable/bg_secondary"
         android:backgroundTint="@color/color_primary_secondary"
         android:gravity="center"
         android:orientation="vertical"
-        android:paddingBottom="22dp"
         android:paddingHorizontal="25dp"
+        android:paddingBottom="22dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/imgMoneyOne"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_xs"
+            android:layout_width="65dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="@dimen/diem_4"
+            android:scaleType="centerCrop"
             android:src="@drawable/img_empty" />
 
         <ImageView
             android:id="@+id/imgMoneyTwo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="65dp"
+            android:layout_height="32dp"
             android:layout_marginTop="2dp"
-            android:layout_marginBottom="@dimen/spacing_xs"
+            android:layout_marginBottom="@dimen/diem_4"
+            android:scaleType="centerCrop"
             android:src="@drawable/img_empty" />
     </LinearLayout>
 
@@ -70,25 +72,25 @@
 
                 <TextView
                     android:id="@+id/tvPrice"
+                    style="@style/bodySmallRegular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:lineSpacingExtra="18dp"
                     android:includeFontPadding="false"
-                    android:text="15,000,00"
-                    style="@style/bodySmallRegular"/>
+                    android:lineSpacingExtra="18dp"
+                    android:text="15,000,00" />
             </LinearLayout>
 
             <TextView
                 android:id="@+id/tvCountry"
+                style="@style/bodyXSSmallRegular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:lineSpacingExtra="18dp"
-                android:text="Australia square"
-                style="@style/bodyXSSmallRegular"
+                android:ellipsize="end"
                 android:gravity="center"
-                android:textColor="@color/color_primary_dark"
+                android:lineSpacingExtra="18dp"
                 android:maxLines="1"
-                android:ellipsize="end" />
+                android:text="Australia square"
+                android:textColor="@color/color_primary_dark" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 

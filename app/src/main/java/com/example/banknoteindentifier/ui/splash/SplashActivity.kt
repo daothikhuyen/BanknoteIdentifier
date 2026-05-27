@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import com.example.banknoteindentifier.databinding.ActivitySplashBinding
 import com.example.banknoteindentifier.ui.main.MainActivity
-import com.example.banknoteindentifier.ui.onboar.OnBoarActivity
+import com.example.banknoteindentifier.ui.onboard.OnBoarActivity
 import com.example.banknoteindentifier.utils.AppConstant
 
 class SplashActivity : AppCompatActivity() {

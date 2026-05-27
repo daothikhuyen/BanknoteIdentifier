@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
+import com.bumptech.glide.Glide
 import com.example.banknoteindentifier.R
 import com.example.banknoteindentifier.data.domain.entities.BankNote
 import com.example.banknoteindentifier.databinding.ItemCollectionBinding
@@ -17,15 +17,17 @@ class CollectionAdapter(private val onClickToDetail : (BankNote) -> Unit) :
     inner class CollectionViewHolder(private val binding: ItemCollectionBinding) :
         RecyclerView.ViewHolder(binding.root){
             fun bind(item : BankNote){
-                binding.imgMoneyOne.load(item.images.firstOrNull()) {
-                    error(R.drawable.img_empty)
-                    placeholder(R.drawable.img_empty)
-                }
+                Glide.with(binding.root.context)
+                    .load(item.images.getOrNull(0))
+                    .error(R.drawable.img_empty)
+                    .placeholder(R.drawable.img_empty)
+                    .into(binding.imgMoneyOne)
 
-                binding.imgMoneyTwo.load(item.images.lastOrNull()) {
-                    error(R.drawable.img_empty)
-                    placeholder(R.drawable.img_empty)
-                }
+                Glide.with(binding.root.context)
+                    .load(item.images.getOrNull(1))
+                    .error(R.drawable.img_empty)
+                    .placeholder(R.drawable.img_empty)
+                    .into(binding.imgMoneyTwo)
 
                 binding.tvTitle.text = item.title
                 binding.tvYear.text = item.features.find { it.title == "Years" }?.value

@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="spacing_xxs">2dp</dimen>"
-    <dimen name="spacing_xs">4dp</dimen>
-    <dimen name="spacing_s">8dp</dimen>
-    <dimen name="spacing_m">16dp</dimen>
-    <dimen name="spacing_l">24dp</dimen>
-    <dimen name="spacing_xl">32dp</dimen>
-    <dimen name="spacing_xxl">48dp</dimen>
-    <dimen name="spacing_xxxl">64dp</dimen>
+    <dimen name="diem_2">2dp</dimen>
+    <dimen name="diem_4">4dp</dimen>
+    <dimen name="diem_8">8dp</dimen>
+    <dimen name="diem_16">16dp</dimen>
+    <dimen name="diem_24">24dp</dimen>
+    <dimen name="diem_32">32dp</dimen>
+    <dimen name="diem_48">48dp</dimen>
+    <dimen name="diem_64">64dp</dimen>
+    <dimen name="diem_58">58dp</dimen>
+    <dimen name="diem_244">244dp</dimen>
 
-    <dimen name="radius_m">16dp</dimen>
-    <dimen name="radius_l">24dp</dimen>"
+    <dimen name="radius_16">16dp</dimen>
+    <dimen name="radius_24">24dp</dimen>
 
     <dimen name="progress_bar_height">8dp</dimen>
-    <dimen name="progress_bar_bottom">71dp</dimen>"
+    <dimen name="progress_bar_bottom">71dp</dimen>
 </resources>

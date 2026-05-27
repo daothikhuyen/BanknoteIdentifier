@@ -23,10 +23,14 @@ class HomeViewModel(private val repository: BankNoteRepository) : ViewModel() {
 
     private fun getBankNotes(){
         viewModelScope.launch {
-            repository.getBankNote().collect{
-                val response = it.data
-                _recentBankNotes.value = response.take(10)
-                _randomBankNotes.value = response.shuffled().take(10)
+            try {
+                repository.getBankNote(0).collect{
+                    val response = it.data
+                    _recentBankNotes.value = response.take(10)
+                    _randomBankNotes.value = response.shuffled().take(10)
+                }
+            }catch (e : Exception){
+                Log.d("Error getBankNotes", e.toString())
             }
         }
     }

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/white"
-    android:paddingBottom="@dimen/spacing_m">
+    android:paddingBottom="@dimen/diem_16">
 
     <!-- Composition -->
     <TextView

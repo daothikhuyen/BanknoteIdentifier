@@ -1,11 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.BanknoteIndentifier" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.BanknoteIdentifier" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.BanknoteIndentifier" parent="Base.Theme.BanknoteIndentifier" />
+    <style name="Theme.BanknoteIdentifier" parent="Base.Theme.BanknoteIdentifier" />
     <style name="Theme.AppCompat.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>"

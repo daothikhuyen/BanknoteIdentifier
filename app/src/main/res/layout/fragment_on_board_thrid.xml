@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.onboard.fragment.OnBoardThirdFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvTitlePreference"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/diem_16"
+            android:fontFamily="@font/be_vietnam_pro_medium"
+            android:gravity="center"
+            android:text="@string/how_do_you_prefer_your_results_displayed"
+            android:textColor="@color/color_primary_dark"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clSimpleMode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/diem_16"
+            android:background="@drawable/bg_onboard"
+            android:padding="@dimen/diem_16"
+            app:layout_constraintTop_toBottomOf="@id/tvTitlePreference">
+
+            <ImageView
+                android:id="@+id/imgSimpleMode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_simple_bold_32dp"
+                app:layout_constraintBottom_toBottomOf="@id/tvSimpleMode"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvSimpleMode" />
+
+            <TextView
+                android:id="@+id/tvSimpleMode"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/diem_16"
+                android:fontFamily="@font/be_vietnam_pro_medium"
+                android:text="@string/simple_easy_to_read"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/imgSimpleMode"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clDetailMode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/diem_16"
+            android:background="@drawable/bg_onboard"
+            android:padding="16dp"
+            app:layout_constraintTop_toBottomOf="@id/clSimpleMode">
+
+            <ImageView
+                android:id="@+id/imgDetailMode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_list_detail_32dp"
+                app:layout_constraintBottom_toBottomOf="@id/tvDetailMode"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvDetailMode" />
+
+            <TextView
+                android:id="@+id/tvDetailMode"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/diem_16"
+                android:fontFamily="@font/be_vietnam_pro_medium"
+                android:text="@string/full_detailed_info"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/imgDetailMode"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clCollectorValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/diem_16"
+            android:background="@drawable/bg_onboard"
+            android:padding="16dp"
+            app:layout_constraintTop_toBottomOf="@id/clDetailMode">
+
+            <ImageView
+                android:id="@+id/imgCollectorValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_chat_money_32dp"
+                app:layout_constraintBottom_toBottomOf="@id/tvCollectorValue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvCollectorValue" />
+
+            <TextView
+                android:id="@+id/tvCollectorValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/diem_16"
+                android:fontFamily="@font/be_vietnam_pro_medium"
+                android:text="@string/focus_on_collector_value"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/imgCollectorValue"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clHistoryOrigin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/diem_16"
+            android:background="@drawable/bg_onboard"
+            android:padding="16dp"
+            app:layout_constraintTop_toBottomOf="@id/clCollectorValue">
+
+            <ImageView
+                android:id="@+id/imgHistoryOrigin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_oir_book_32dp"
+                app:layout_constraintBottom_toBottomOf="@id/tvHistoryOrigin"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvHistoryOrigin" />
+
+            <TextView
+                android:id="@+id/tvHistoryOrigin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/diem_16"
+                android:fontFamily="@font/be_vietnam_pro_medium"
+                android:text="@string/focus_on_history_origin"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/imgHistoryOrigin"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
