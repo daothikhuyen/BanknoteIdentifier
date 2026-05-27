@@ -6,7 +6,6 @@
     android:background="@color/white"
     android:paddingBottom="@dimen/diem_16">
 
-    <!-- Composition -->
     <TextView
         android:id="@+id/tvType"
         android:layout_width="0dp"
