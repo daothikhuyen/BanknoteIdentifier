@@ -71,7 +71,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:paddingHorizontal="40dp"
+                android:paddingHorizontal="@dimen/diem_40"
                 android:paddingVertical="@dimen/diem_16">
 
                 <ImageView
@@ -84,13 +84,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/know_what_s_in_your_pocket"
-                    android:theme="@style/bodyLargeSemiBold.PrimaryDark" />
+                    android:textSize="16sp"
+                    android:fontFamily="@font/be_vietnam_pro_semibold"
+                    android:textColor="@color/color_primary_dark" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/tap_here_to_recognize_a_collections"
-                    android:theme="@style/bodyMediumRegular.PrimaryDark" />
+                    android:textSize="14sp"
+                    android:fontFamily="@font/be_vietnam_pro_medium"
+                    android:textColor="@color/color_primary_dark" />
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -102,7 +106,8 @@
             android:layout_marginStart="@dimen/diem_16"
             android:layout_marginTop="@dimen/diem_16"
             android:text="@string/recent_banknote"
-            android:theme="@style/bodyLargeSemiBold"
+            android:textSize="16sp"
+            android:fontFamily="@font/be_vietnam_pro_semibold"
             app:layout_constraintTop_toBottomOf="@+id/cvBanner"
             tools:layout_editor_absoluteX="0dp" />
 
@@ -122,7 +127,8 @@
             android:layout_marginStart="@dimen/diem_16"
             android:layout_marginTop="@dimen/diem_16"
             android:text="@string/random_banknote"
-            android:theme="@style/bodyLargeSemiBold"
+            android:textSize="16sp"
+            android:fontFamily="@font/be_vietnam_pro_semibold"
             app:layout_constraintTop_toBottomOf="@+id/rvRecentBanknote"
             tools:layout_editor_absoluteX="0dp" />
 
@@ -136,5 +142,4 @@
             android:paddingBottom="@dimen/diem_24"
             app:layout_constraintTop_toBottomOf="@+id/tvTitleThree" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </androidx.core.widget.NestedScrollView>

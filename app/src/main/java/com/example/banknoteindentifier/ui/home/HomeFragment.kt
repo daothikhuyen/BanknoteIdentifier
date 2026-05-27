@@ -52,7 +52,6 @@ class HomeFragment : Fragment() {
         initView()
         initViewRecycleViewRecent()
         initViewRecycleViewRandom()
-
     }
 
     fun initView() {

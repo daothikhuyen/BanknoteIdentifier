@@ -25,6 +25,10 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        initView()
+    }
+
+    fun initView(){
         binding.toolbar.setNavigationOnClickListener {
             finish()
         }
@@ -46,6 +50,10 @@ class DetailActivity : AppCompatActivity() {
             viewModel.toggleCollection(itemBankNote ?: return@setOnClickListener)
         }
 
+        binding.rvPhysicalFeatures.apply {
+            adapter = featureAdapter
+            layoutManager = LinearLayoutManager(this@DetailActivity)
+        }
     }
 
     private fun statusButtonAdd(isCollection : Boolean){
@@ -93,10 +101,6 @@ class DetailActivity : AppCompatActivity() {
                 getString(R.string.not_yet_released)
             }
 
-        binding.rvPhysicalFeatures.apply {
-            adapter = featureAdapter
-            layoutManager = LinearLayoutManager(this@DetailActivity)
-        }
         featureAdapter.submitList(bankNote.features)
     }
 }

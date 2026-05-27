@@ -67,7 +67,7 @@ class SearchActivity : AppCompatActivity() {
                 val lastVisibleItemPosition = layoutManager.findLastCompletelyVisibleItemPosition()
                 val totalItemCount = layoutManager.itemCount
 
-                if (lastVisibleItemPosition == totalItemCount - 1) {
+                if (lastVisibleItemPosition == totalItemCount - 1 && totalItemCount > 0 && lastVisibleItemPosition >= totalItemCount - 2) {
                     viewModel.onLoadMore()
                 }
             }
@@ -84,6 +84,7 @@ class SearchActivity : AppCompatActivity() {
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
             override fun onQueryTextSubmit(p0: String?): Boolean {
+                viewModel.clearSearch()
                 viewModel.onSubmitSearch(p0.toString())
                 return true
             }
@@ -91,6 +92,7 @@ class SearchActivity : AppCompatActivity() {
             override fun onQueryTextChange(newtext: String?): Boolean {
                 if (newtext.isNullOrBlank()) {
                     viewModel.clearSearch()
+                    viewModel.loadData()
                 }
                 return true
             }

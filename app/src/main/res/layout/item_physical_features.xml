@@ -11,23 +11,25 @@
         android:id="@+id/tvType"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/be_vietnam_pro_medium"
         android:text="Name"
-        style="@style/bodySmallMedium"
         android:textColor="@color/color_primary_dark"
+        android:textSize="12sp"
         app:layout_constraintEnd_toStartOf="@+id/tvValue"
+        app:layout_constraintHorizontal_weight="1.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_weight="1.5" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvValue"
-        style="@style/bodyMediumMedium"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/be_vietnam_pro_medium"
         android:text="Autralian EURO Cent 3355 .trutrali EURO Cent 3355 . "
+        android:textSize="14sp"
         app:layout_constraintBaseline_toBaselineOf="@id/tvType"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_weight="3"
-        app:layout_constraintStart_toEndOf="@+id/tvType"/>
+        app:layout_constraintStart_toEndOf="@+id/tvType" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -29,20 +29,12 @@ class SearchViewModel(private val bankNoteRepository: BankNoteRepository) : View
         try {
             bankNoteRepository.getBankNote(currentPage).collect {
                 val result = it.data
-                val currentList = _searchBankNotes.value.toMutableList()
-                currentList.addAll(result)
-                delay(1000)
-                _searchBankNotes.value = currentList
-
-                if (result.isEmpty()) {
-                    isLastPage = true
-                } else {
-                    currentPage++
-                }
+                updateList(result)
             }
         }catch (e : Exception){
             Log.d("error getBankNotes", e.toString())
             isLastPage = true
+            _isLoadingMore.value = false
         }
     }
 
@@ -54,7 +46,6 @@ class SearchViewModel(private val bankNoteRepository: BankNoteRepository) : View
                 Log.d("error loadAllData", e.toString())
             }
         }
-
     }
 
     fun onLoadMore() {
@@ -80,10 +71,22 @@ class SearchViewModel(private val bankNoteRepository: BankNoteRepository) : View
         try {
             viewModelScope.launch {
                 val result = bankNoteRepository.searchByText(keyword, currentPage)
-                _searchBankNotes.value = result
+                updateList(result)
             }
         }catch (e : Exception){
             Log.d("error onSubmitSearch", e.toString())
+        }
+    }
+
+    private suspend fun updateList(list: List<BankNote>) {
+        val currentList = _searchBankNotes.value.toMutableList()
+        currentList.addAll(list)
+        delay(1000)
+        _searchBankNotes.value = currentList
+        if (list.isEmpty()) {
+            isLastPage = true
+        } else {
+            currentPage++
         }
     }
 
@@ -91,8 +94,6 @@ class SearchViewModel(private val bankNoteRepository: BankNoteRepository) : View
         currentKeyword = ""
         currentPage = 0
         isLastPage = false
-        _isLoadingMore.value = false
         _searchBankNotes.value = emptyList()
-        loadData()
     }
 }

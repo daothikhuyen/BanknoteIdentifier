@@ -16,7 +16,6 @@ class DetailViewModel(private val repository: BankNoteRepository) : ViewModel() 
 
     private val _bankNoteDetail = MutableStateFlow<BankNote?>(null)
     val bankNoteDetail: Flow<BankNote?> = _bankNoteDetail
-
     fun getBankNoteById(id: String) {
         viewModelScope.launch {
             try {

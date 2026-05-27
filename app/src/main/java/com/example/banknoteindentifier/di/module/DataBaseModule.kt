@@ -23,5 +23,4 @@ fun provideCollectionBankNoteDao(database: AppDatabase) : CollectionBankNoteDao 
 val databaseModule = module {
     single { provideDatabase(androidApplication()) }
     singleOf(::provideCollectionBankNoteDao)
-
 }
