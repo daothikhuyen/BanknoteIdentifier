@@ -16,14 +16,12 @@ class BankNoteRepositoryImpl(
     private val collectionBankNoteDao: CollectionBankNoteDao
 ) : BankNoteRepository {
 
-    override suspend fun getBankNote(page : Int): Flow<BankNoteResponse> = flow {
-        val response = apiService.getBankNote(page = page)
-        emit(response)
+    override suspend fun getBankNote(page : Int): BankNoteResponse {
+        return apiService.getBankNote(page = page)
     }
 
     override suspend fun getBankNoteById(id: String): BankNote = withContext(Dispatchers.IO) {
-        val response = apiService.getBankNoteById(id)
-        return@withContext response
+        apiService.getBankNoteById(id)
     }
 
     override fun getCollection(): Flow<List<BankNote>> {
@@ -31,7 +29,7 @@ class BankNoteRepositoryImpl(
     }
 
     override suspend fun getCollectionById(id: String): Flow<Boolean> = withContext(Dispatchers.IO) {
-        return@withContext collectionBankNoteDao.getCollectionById(id)
+        collectionBankNoteDao.getCollectionById(id)
     }
 
     override suspend fun toggleCollection(bankNote: BankNote) = withContext(Dispatchers.IO) {
@@ -44,12 +42,10 @@ class BankNoteRepositoryImpl(
     }
 
     override suspend fun searchByText(query: String, page: Int): List<BankNote> = withContext(Dispatchers.IO) {
-        val response = apiService.searchBankNote(query, page)
-        return@withContext response.data
+        apiService.searchBankNote(query, page).data
     }
 
     override suspend fun searchByTextCollection(query: String): List<BankNote> = withContext(Dispatchers.IO) {
-        val response = collectionBankNoteDao.searchByText(query)
-        return@withContext response
+        collectionBankNoteDao.searchByText(query)
     }
 }

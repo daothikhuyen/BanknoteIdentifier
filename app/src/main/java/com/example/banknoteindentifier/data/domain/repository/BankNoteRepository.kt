@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface BankNoteRepository {
 
-    suspend fun getBankNote(page: Int) : Flow<BankNoteResponse>
+    suspend fun getBankNote(page: Int) : BankNoteResponse
 
     suspend fun getBankNoteById(id : String) : BankNote
 

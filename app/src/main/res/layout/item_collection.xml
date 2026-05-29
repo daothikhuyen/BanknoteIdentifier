@@ -14,46 +14,44 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_secondary"
+        android:paddingVertical="@dimen/diem_12"
         android:backgroundTint="@color/white"
-        android:foreground="@drawable/bg_primary_border_dash_bottom"
-        android:padding="@dimen/diem_8">
+        android:foreground="@drawable/bg_primary_border_dash_bottom">
 
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_marginStart="@dimen/diem_16"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:id="@+id/imgMoneyOne"
-                android:layout_width="50dp"
-                android:layout_height="22dp"
-                android:layout_marginVertical="@dimen/diem_4"
-                android:scaleType="centerCrop"
+                android:layout_width="60dp"
+                android:layout_height="32dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:layout_marginBottom="@dimen/diem_4"
                 android:src="@drawable/img_empty" />
 
             <ImageView
                 android:id="@+id/imgMoneyTwo"
-                android:layout_width="50dp"
-                android:layout_height="22dp"
-                android:layout_marginTop="@dimen/diem_2"
-                android:layout_marginBottom="@dimen/diem_4"
-                android:scaleType="centerCrop"
+                android:layout_width="60dp"
+                android:layout_height="32dp"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
                 android:src="@drawable/img_empty" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/diem_8"
-            android:layout_marginTop="-4dp"
-            android:layout_marginBottom="-4dp"
             android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="@id/linearLayout"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/linearLayout">
 
             <TextView
@@ -63,22 +61,17 @@
                 android:ellipsize="end"
                 android:fontFamily="@font/be_vietnam_pro_medium"
                 android:maxLines="2"
-                android:text="1/4 Dolar “Washington Silver Quarter 1/4 Dolar “Washington Silver Quarter"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/ivMoneyOne" />
+                android:text="10 000 Nouveaux Zaïres"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tvYear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/diem_2"
                 android:fontFamily="@font/be_vietnam_pro_medium"
-                android:text="1932 - 1964"
+                android:text="Not yet released"
                 android:textColor="@color/color_border"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/ivMoneyOne" />
+                android:textSize="12sp" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

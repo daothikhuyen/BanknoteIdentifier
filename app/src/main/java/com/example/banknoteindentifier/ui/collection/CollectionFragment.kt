@@ -49,15 +49,6 @@ class CollectionFragment : Fragment() {
         viewModel.collections.asLiveData().observe(viewLifecycleOwner) {
             collectionAdapter.submitList(it)
         }
-
-        binding.searchView.apply {
-            val closeButton = findViewById<ImageView>(androidx.appcompat.R.id.search_close_btn)
-            closeButton.setImageResource(R.drawable.ic_close_35dp)
-            closeButton.elevation = 12f
-            val params =closeButton.layoutParams as ViewGroup.MarginLayoutParams
-            params.topMargin = (2 * resources.displayMetrics.density).toInt()
-            closeButton.layoutParams = params
-        }
     }
 
     fun onSubmitSearch(){

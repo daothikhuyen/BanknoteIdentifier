@@ -27,10 +27,8 @@ class SearchViewModel(private val bankNoteRepository: BankNoteRepository) : View
 
     private suspend fun getBankNotes() {
         try {
-            bankNoteRepository.getBankNote(currentPage).collect {
-                val result = it.data
-                updateList(result)
-            }
+            val result = bankNoteRepository.getBankNote(currentPage)
+            updateList(result.data)
         }catch (e : Exception){
             Log.d("error getBankNotes", e.toString())
         }
@@ -38,11 +36,7 @@ class SearchViewModel(private val bankNoteRepository: BankNoteRepository) : View
 
     fun loadData() {
         viewModelScope.launch {
-            try {
-                getBankNotes()
-            } catch (e: Exception) {
-                Log.d("error loadAllData", e.toString())
-            }
+            getBankNotes()
         }
     }
 
