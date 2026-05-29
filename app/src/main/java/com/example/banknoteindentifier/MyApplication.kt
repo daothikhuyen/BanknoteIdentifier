@@ -1,4 +1,4 @@
-package com.example.banknoteindentifier.ui.main
+package com.example.banknoteindentifier
 
 import android.app.Application
 import com.example.banknoteindentifier.di.appModule

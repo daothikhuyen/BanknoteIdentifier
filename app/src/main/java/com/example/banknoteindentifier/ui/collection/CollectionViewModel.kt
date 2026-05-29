@@ -5,11 +5,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.banknoteindentifier.data.domain.entities.BankNote
 import com.example.banknoteindentifier.data.domain.repository.BankNoteRepository
-import com.example.banknoteindentifier.data.source.local.dao.CollectionBankNoteDao
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 
-class CollectionViewModel(private val dao: CollectionBankNoteDao): ViewModel() {
+class CollectionViewModel(private val repository: BankNoteRepository): ViewModel() {
 
     private val _collections = MutableStateFlow<List<BankNote>>(emptyList())
     val collections = _collections
@@ -21,7 +20,7 @@ class CollectionViewModel(private val dao: CollectionBankNoteDao): ViewModel() {
     fun getCollections(){
         viewModelScope.launch {
             try {
-                dao.getCollection().collect{
+                repository.getCollection().collect{
                     _collections.value = it
                 }
             }catch (e : Exception){
@@ -35,7 +34,7 @@ class CollectionViewModel(private val dao: CollectionBankNoteDao): ViewModel() {
     fun onSubmitSearch(keyword : String){
         viewModelScope.launch {
             try {
-                val result = dao.searchByText(keyword)
+                val result = repository.searchByTextCollection(keyword)
                 _collections.value = result
             }catch (e : Exception){
                 Log.d("error onSubmitSearch", e.toString())
